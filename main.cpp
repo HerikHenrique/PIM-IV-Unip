@@ -24,25 +24,30 @@ struct paciente
         cin >> resultado;
 
         char key[] = "s";
+        char negative[] = "n";
 
         int comparator = resultado.compare(key);
-        if (comparator != 0)
-        {
-            throw invalid_argument("Digite S para sim \n\n\n Digite N para não ");
-        }
-        
+        int comparatorNegative = resultado.compare(negative);
 
+
+        if (comparator != 0 && comparatorNegative != 0)
+        {
+            cout << "Argumento Inválido\n\n\n\n\n";
+            cout << "Tente Novamente\n\n";
+            cout << "Digite S para teste positivo" << endl << "N para teste negativo\n\n\n";
+            return infectado();
+        }
         if (resultado == key)
         {
             printf("Você está infectado!");
         } else{
             printf("Parabéns! Continue com as devidas precauções");
         };
-        
 
-        
-        
-        
+
+
+
+
     }; 
 
 int main()
@@ -50,7 +55,7 @@ int main()
 
     setlocale(LC_ALL, "portuguese");
     infectado();
-    
+
 
     return 0;
 }
