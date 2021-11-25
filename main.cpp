@@ -15,7 +15,7 @@ struct paciente
     char email;
 };
 
- int infectado()
+std::string infectado()
     {
         // bool s = true,n = false;
         string resultado;
@@ -23,36 +23,31 @@ struct paciente
         cout << "Digite (S) se sim" <<endl << "Digite (N) se não" << endl;
         cin >> resultado;
 
-        char key[] = "s";
-        char negative[] = "n";
+        std::string key = "s";
+        std::string negative = "n";
 
-        int comparator = resultado.compare(key);
-        int comparatorNegative = resultado.compare(negative);
+        // int comparator = resultado.compare(key);
+        // int comparatorNegative = resultado.compare(negative);
 
 
-        if (comparator != 0 && comparatorNegative != 0)
+        if (resultado.compare(key) && resultado.compare(negative))
         {
-            cout << "Argumento Inválido\n\n\n\n\n";
-            cout << "Tente Novamente\n\n";
-            cout << "Digite S para teste positivo" << endl << "N para teste negativo\n\n\n";
+            cout << "Argumento Inválido\n\n\n\n\n"; 
             return infectado();
-        }
-        if (resultado == key)
-        {
-            printf("Você está infectado!");
-        } else{
+        } else if (resultado.compare(key)){
+
             printf("Parabéns! Continue com as devidas precauções");
-        };
-
-
-
-
-
+        }else{
+            cout << "Você está infectado!";
+            return resultado;
+        }
+        
+        
     }; 
 
 int main()
 {
-
+    
     setlocale(LC_ALL, "portuguese");
     infectado();
 
